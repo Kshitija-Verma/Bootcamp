@@ -1,0 +1,42 @@
+
+ .section{
+     height:900px;
+
+ }
+ .im1{
+     margin-top: 30px;
+     margin-left: 105px;
+
+ }
+ p{
+     margin-top: 30px;
+     margin-left: 105px;
+     margin-right: 120px;
+
+     background-color: lightgray;
+ }
+ .col-3{
+     margin: 0px;
+ }
+ h3{
+     margin-left: 105px;
+ }
+ hr{
+     margin-left: 105px;
+     margin-right: 120px;
+
+ }
+ .row{
+     margin-left:90px;
+     margin-right: 40px;
+ }
+ .height{
+     height: 335px;
+     background: gray;
+ }
+ #left{
+     float:left;
+ }
+ #right{
+     float:right;
+ }
