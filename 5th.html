@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>objects</title>
+    <script>
+        //Part-1: list of objects
+        var emplist =[
+            {name:'A' , age: 20 , salary: 500 , DOB : '21/10/98' } ,
+            {name:'B' , age: 22 , salary:12000 , DOB: '12/1/98' },
+            {name:'C' , age: 19 , salary:30000 , DOB: '8/11/2000'},
+            {name:'D' , age: 22 , salary:900 , DOB: '19/2/97' },
+            {name:'E' , age: 25 , salary:15000 , DOB: '1/7/96' },
+            {name:'F' , age: 19 , salary:20000 , DOB: '12/1/99' },
+
+
+         ];
+        // Part-2: filter objects for salary more than 5000
+        var emp_filter = emplist.filter(function (item) {
+            if(item.salary>5000)
+            {
+                return item;
+            }
+
+        })
+        console.log(emp_filter);
+
+// Part-3 : group objects by age
+
+        var greaterthan20 = [];
+        var greaterthan24=[];
+        var lessthan20=[];
+        for(var i in emplist)
+        {
+            if(emplist[i].age>=20 && emplist[i].age<25)
+            {
+                greaterthan20.push(emplist[i]);
+            }
+            if(emplist[i].age>24)
+            {
+                greaterthan24.push(emplist[i]);
+            }
+            if(emplist[i].age<20)
+            {
+                lessthan20.push(emplist[i]);
+            }
+        }
+        console.log(greaterthan24);
+        console.log(greaterthan20);
+        console.log(lessthan20);
+
+        // Part -4 :if salary less than 1000 and age greater than 20 then increment salary by 5 times
+
+        var emp4 = emplist.filter(function (item) {
+            if(item.salary<1000 && item.age>20)
+            {
+                item.salary= item.salary*5;
+                return item;
+            }
+
+        })
+        console.log(emp4);
+
+
+    </script>
+</head>
+<body>
+
+
+</body>
+</html>

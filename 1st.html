@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        var p = prompt("Please enter principle");
+        var r = prompt("please enter rate per annum");
+        var t = prompt("please enter time in year");
+
+       if(isNaN(p)|| isNaN(r) || isNaN(t))  {
+           document.write("Please enter numbers!!");
+
+
+        }
+       else
+       {
+           var si= (p*r*t)/100;
+
+           document.write("The value of simple interest is:"+ si);
+
+       }
+
+
+    </script>
+
+</head>
+
+<body>
+
+
+
+</body>
+</html>

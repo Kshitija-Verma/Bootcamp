@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>shallow and deep copy</title>
+    <script>
+     var  obj = {
+            Mickey: 'mouse' ,
+            Shinchan: 'Nohara',
+            Donald: 'duck'
+
+        }
+        var shcopy = { ...obj}; //shallow copy example
+     console.log(shcopy.Donald);
+
+     var obj1 ={
+         cartoon: {
+             Mickey: 'mouse'
+         }
+
+     }
+     var dpcopy = JSON.parse(JSON.stringify(obj1)); //to make deep copy of the object
+     dpcopy.cartoon.Mickey = 'duck';
+     console.log(dpcopy.cartoon.Mickey);
+     console.log(obj1.cartoon.Mickey);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
