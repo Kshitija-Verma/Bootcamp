@@ -1,6 +1,6 @@
 
 public class First {
-    public int count;
+    public volatile int count;
     public static void main(String[] args) {
         First fi = new First();
         fi.example();
