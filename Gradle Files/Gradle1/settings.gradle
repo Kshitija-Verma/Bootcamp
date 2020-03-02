@@ -1,2 +1,3 @@
 rootProject.name = 'Gradle1'
+include 'ShowDate'
 
