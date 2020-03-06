@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class EmployeeController {
             throw new EmployeeNotFoundException("id"+id);
         return employeeBean;
     }
-//Question 7 - DELETE METHOD 
+//Question 7 - DELETE METHOD
     @DeleteMapping(path="/employees/{id}")
     public void deleteEmployee(@PathVariable int id){
         EmployeeBean employeeBean = employeeService.deleteById(id);
@@ -40,8 +41,24 @@ public class EmployeeController {
 
     //Question 5 POST method
     @PostMapping("/employees")
-    public ResponseEntity<Object> createEmployee(@RequestBody EmployeeBean employeeBean){
+    public ResponseEntity<Object> createEmployee(@Valid @RequestBody EmployeeBean employeeBean){
         EmployeeBean employee = employeeService.save(employeeBean);
+
+        URI location = ServletUriComponentsBuilder.
+                fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(employee.getId())
+                .toUri();
+        return ResponseEntity.created(location).build();
+
+    }
+    //Question 8 PUT method
+    @PutMapping("/employees/{id}")
+    public ResponseEntity<Object> updateEmployee(@PathVariable int id, @RequestBody EmployeeBean employeeBean){
+        EmployeeBean employee = employeeService.findId(id);
+        employee.setName(employeeBean.getName());
+        employee.setAge(employeeBean.getAge());
+        EmployeeBean employees = employeeService.save(employee);
 
         URI location = ServletUriComponentsBuilder.
                 fromCurrentRequest()

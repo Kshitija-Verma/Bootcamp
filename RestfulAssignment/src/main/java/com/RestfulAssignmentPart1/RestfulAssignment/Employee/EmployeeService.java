@@ -46,5 +46,14 @@ public EmployeeBean save(EmployeeBean employeeBean) {
     return employeeBean;
 
 }
+    public EmployeeBean findId(int id) {
+        Iterator<EmployeeBean> iterator = employee.iterator();
+        while(iterator.hasNext()){
+            EmployeeBean employeeBean = iterator.next();
+            if(employeeBean.getId()==id)
+            return employeeBean;
+        }
+        return null;
+    }
 }
 

@@ -1,7 +1,10 @@
 package com.RestfulAssignmentPart1.RestfulAssignment.Employee;
 
+import javax.validation.constraints.Size;
+
 public class EmployeeBean {
     private Integer id;
+    @Size(min =2 , message = "Name should have atleast two characters")
     private String name;
     private int age;
 EmployeeBean(){
