@@ -14,14 +14,13 @@ public interface EmployeeRepository extends CrudRepository<Employee,Integer> {
     @Query("select firstName,lastName from Employee where salary >(select avg(salary) from Employee) ORDER BY age ASC,salary DESC")
     List<Object[]> salaryGreaterThanAvg();
 
-//    @Query("select avg(salary) from Employee")
-//    int avgSalary();
+   @Query("select avg(salary) from Employee")
+   public Double avgSalary();
 
-//@Transactional
-//   @Modifying
-//    @Query("UPDATE Employee SET salary=:salary where salary<:avgsalary" )
-//    public void updateSalaryLessThanAvg(@Param("salary") Double salary,@Param("avgsalary") Double avgsalary);
-//
+  @Modifying
+    @Query("UPDATE Employee SET salary=:upsalary where salary<:avgsalary" )
+    public void updateSalaryLessThanAvg(@Param("upsalary") Double salary,@Param("avgsalary") Double avgsalary);
+
     @Query(value = "select emp_id , emp_first_name, emp_age from employee_table where emp_last_name=:lastName",nativeQuery = true)
     List<Object[]> findEmployeeByLastName(@Param("lastName")String lastName);
 @Modifying

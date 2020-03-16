@@ -3,6 +3,7 @@ package com.HibernatePart2.Part2.Controller;
 import com.HibernatePart2.Part2.Entities.Employee;
 import com.HibernatePart2.Part2.Repositeries.EmployeeRepository;
 import com.sun.javafx.scene.layout.region.SliceSequenceConverter;
+import com.sun.org.apache.bcel.internal.generic.ARETURN;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.data.jpa.provider.PersistenceProvider;
@@ -26,8 +27,7 @@ import java.util.List;
 
 @RestController
 public class EmployeeController {
-//    private static EntityManagerFactory entityManagerFactory =
-//            Persistence.createEntityManagerFactory("example-unit");
+
     @Autowired
     EmployeeRepository employeeRepository;
 
@@ -52,16 +52,10 @@ public class EmployeeController {
 
     }
 
-//    @GetMapping("/updateSalary")
-//    public void updateSalary(){
-//
-//        EntityManager em = entityManagerFactory.createEntityManager();
-//            Query query = em.createQuery(
-//                    "SELECT AVG(salary) FROM Employee ");
-//            Double result = (Double) query.getSingleResult();
-//
-//         employeeRepository.updateSalaryLessThanAvg(30000d,result);
-//    }
+    @GetMapping("/updateSalary")
+    public void updateSalary(){
+        employeeRepository.updateSalaryLessThanAvg(30000d, employeeRepository.avgSalary());
+    }
 
 @GetMapping("/find-by-lastname")
     List<Object[]> findAllEmployeesByLastName(){
