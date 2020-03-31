@@ -1,0 +1,8 @@
+6.Override the Gradle Wrapper task to install a different version of gradle. Make sure that the task written in Q4 also executes with it.
+-->i) In this we will change the version of wrapper class by going into gradle->wrapper->gradle-wrapper.properties
+ii) Run the command on terminal -> ./gradlew Build
+
+7. Run the gradle profile command and attach the resulting files.
+--> By running gradle --profile 
+
+we will get the profile folder in reports.
